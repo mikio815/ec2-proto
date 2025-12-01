@@ -4,7 +4,8 @@ cloud-hypervisor(https://github.com/cloud-hypervisor/cloud-hypervisor)
 
 ## setup
 
-CLOUDHV.fdを[CHのedk2]("https://github.com/cloud-hypervisor/edk2/releases/tag/ch-a54f262b09")からダウンロードしてimages/に置く
+CLOUDHV.fdを[CHのedk2](https://github.com/cloud-hypervisor/edk2/releases/tag/ch-a54f262b09)からダウンロードしてimages/に置く
+
 クラウド用のnobleを同じくimage/に置く
 
 ## boot
