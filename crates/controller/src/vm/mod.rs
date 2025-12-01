@@ -1,17 +1,27 @@
-pub struct VmConfig {
-    pub cpu: usize,
-    pub memory_mib: usize,
-    pub disk_path: String,
+use anyhow::Result;
+
+use crate::config::VmConfig;
+use crate::hypervisor::{HypervisorClient, HypervisorConfig};
+
+pub struct VmManager {
+    hypervisor: HypervisorClient,
 }
 
-pub struct VmManager;
-
 impl VmManager {
-    pub fn create(config: &VmConfig) -> anyhow::Result<()> {
-        unimplemented!("後で")
+    pub fn new(h_cfg: HypervisorConfig) -> Self {
+        let hypervisor = HypervisorClient::new(h_cfg);
+        Self { hypervisor }
     }
 
-    pub fn boot() -> anyhow::Result<()> {
-        unimplemented!("後で")
+    /// テストなので
+    pub fn create_and_boot_single(&self, vm_cfg: &VmConfig) -> Result<()> {
+        let mut child = self.hypervisor.spawn()?;
+
+        self.hypervisor.create_vm(vm_cfg)?;
+        self.hypervisor.boot_vm()?;
+
+        child.wait()?;
+
+        Ok(())
     }
 }
