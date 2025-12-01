@@ -1,2 +1,0 @@
-warning: /home/mikio/ec2-proto/crates/controller/Cargo.toml: no edition set: defaulting to the 2015 edition while the latest is 2024
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.01s
